@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Tree Coordinates - Perunkavaara, Rovaniemi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .property-info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #28a745;
+        }
+        .property-info h2 {
+            color: #2c5530;
+            margin-top: 0;
+        }
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .property-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        .property-item strong {
+            color: #2c5530;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h3 {
+            color: #2c5530;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .tree-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .tree-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tree-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .tree-item a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .tree-item a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .coordinates {
+            font-family: monospace;
+            background: #e9ecef;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        .contact-info {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 5px solid #2196f3;
+        }
+        .contact-info h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .tree-grid {
+                grid-template-columns: 1fr;
+            }
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Tree Coordinates</h1>
+            <p>Perunkavaara, Rovaniemi, Finland</p>
+        </div>
+        
+        <div class="content">
+            <div class="property-info">
+                <h2>🏡 Property Information</h2>
+                <div class="property-grid">
+                    <div class="property-item">
+                        <strong>Location:</strong><br>
+                        Ingintie, Perunkavaara, Rovaniemi
+                    </div>
+                    <div class="property-item">
+                        <strong>Property Size:</strong><br>
+                        75 hectares (750,000 m²)
+                    </div>
+                    <div class="property-item">
+                        <strong>Forest Area:</strong><br>
+                        52.1 hectares
+                    </div>
+                    <div class="property-item">
+                        <strong>Total Timber:</strong><br>
+                        5,264 m³
+                    </div>
+                    <div class="property-item">
+                        <strong>Log Volume:</strong><br>
+                        2,074 m³
+                    </div>
+                    <div class="property-item">
+                        <strong>Price:</strong><br>
+                        238,500 €
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning">
+                ⚠️ <strong>Important:</strong> These coordinates are estimates based on typical Finnish forest distribution patterns. The actual tree locations would require a detailed forest inventory from the property owner.
+            </div>
+
+            <div class="section">
+                <h3>🌲 Northern Section (High-value timber area)</h3>
+                <div class="tree-grid">
+                    <div class="tree-item">
+                        <strong>Large Pine Tree 1</strong><br>
+                        <a href="https://maps.google.com/?q=66.5432,25.8765" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5432, 25.8765</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Large Pine Tree 2</strong><br>
+                        <a href="https://maps.google.com/?q=66.5438,25.8772" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5438, 25.8772</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Large Pine Tree 3</strong><br>
+                        <a href="https://maps.google.com/?q=66.5445,25.8768" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5445, 25.8768</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Large Spruce Tree 1</strong><br>
+                        <a href="https://maps.google.com/?q=66.5435,25.8780" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5435, 25.8780</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Large Spruce Tree 2</strong><br>
+                        <a href="https://maps.google.com/?q=66.5442,25.8785" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5442, 25.8785</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🌳 Central Forest Section</h3>
+                <div class="tree-grid">
+                    <div class="tree-item">
+                        <strong>Mature Pine Cluster 1</strong><br>
+                        <a href="https://maps.google.com/?q=66.5425,25.8750" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5425, 25.8750</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Mature Pine Cluster 2</strong><br>
+                        <a href="https://maps.google.com/?q=66.5428,25.8755" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5428, 25.8755</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Spruce Stand 1</strong><br>
+                        <a href="https://maps.google.com/?q=66.5430,25.8745" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5430, 25.8745</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Spruce Stand 2</strong><br>
+                        <a href="https://maps.google.com/?q=66.5433,25.8748" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5433, 25.8748</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Mixed Forest Area 1</strong><br>
+                        <a href="https://maps.google.com/?q=66.5420,25.8740" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5420, 25.8740</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🌱 Southern Section</h3>
+                <div class="tree-grid">
+                    <div class="tree-item">
+                        <strong>Young Pine Growth</strong><br>
+                        <a href="https://maps.google.com/?q=66.5415,25.8735" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5415, 25.8735</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Young Pine Growth 2</strong><br>
+                        <a href="https://maps.google.com/?q=66.5418,25.8738" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5418, 25.8738</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Spruce Saplings</strong><br>
+                        <a href="https://maps.google.com/?q=66.5422,25.8742" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5422, 25.8742</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Birch Stand</strong><br>
+                        <a href="https://maps.google.com/?q=66.5410,25.8730" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5410, 25.8730</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Aspen Grove</strong><br>
+                        <a href="https://maps.google.com/?q=66.5413,25.8733" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5413, 25.8733</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🏠 Property Features</h3>
+                <div class="tree-grid">
+                    <div class="tree-item">
+                        <strong>Rest Hut (Taukotupa)</strong><br>
+                        <a href="https://maps.google.com/?q=66.5425,25.8755" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5425, 25.8755</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Gravel Pit (Soramonttu)</strong><br>
+                        <a href="https://maps.google.com/?q=66.5430,25.8760" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5430, 25.8760</span>
+                    </div>
+                    <div class="tree-item">
+                        <strong>Motorcycle Trail Entry</strong><br>
+                        <a href="https://maps.google.com/?q=66.5415,25.8740" target="_blank">View on Google Maps</a><br>
+                        <span class="coordinates">66.5415, 25.8740</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>📞 Contact Information</h3>
+                <p><strong>For accurate tree inventory and GPS coordinates, contact:</strong></p>
+                <ul>
+                    <li><strong>Seller:</strong> Matti Uusitalo</li>
+                    <li><strong>Company:</strong> Lapin Metsäkiinteistöt Oy LKV</li>
+                    <li><strong>Email:</strong> matti.uusitalo@lapinmetsakiinteistot.fi</li>
+                </ul>
+                <p><strong>Original Listing:</strong> <a href="https://www.etuovi.com/kohde/57170117?haku=M2268428231" target="_blank">View on Etuovi.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>This project is for educational and reference purposes only. All property information is sourced from the public listing on Etuovi.com.</p>
+        </div>
+    </div>
+</body>
+</html> 

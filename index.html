@@ -3,448 +3,609 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forest Tree Coordinates - Perunkavaara, Rovaniemi</title>
+    <title>🌲 Carbon Forest - Offset Your CO2 Footprint</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: #333;
         }
+
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
+            padding: 20px;
         }
+
         .header {
             background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
             color: white;
             padding: 30px;
             text-align: center;
+            border-radius: 15px 15px 0 0;
+            margin-bottom: 20px;
         }
+
         .header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
+
         .header p {
-            margin: 10px 0 0 0;
-            font-size: 1.2em;
+            font-size: 1.3em;
             opacity: 0.9;
         }
-        .content {
-            padding: 30px;
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            margin-bottom: 20px;
         }
-        .property-info {
+
+        .calculator-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .trees-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #2c5530;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #2c5530;
+        }
+
+        .form-group input, .form-group select {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #4a7c59;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .result-box {
             background: #f8f9fa;
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 30px;
+            margin-top: 20px;
             border-left: 5px solid #28a745;
         }
-        .property-info h2 {
+
+        .result-box h3 {
             color: #2c5530;
-            margin-top: 0;
+            margin-bottom: 10px;
         }
-        .property-grid {
+
+        .co2-amount {
+            font-size: 2em;
+            font-weight: bold;
+            color: #dc3545;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .trees-needed {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .trees-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
-        .property-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #dee2e6;
-        }
-        .property-item strong {
-            color: #2c5530;
-        }
-        .tree-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-        }
-        .tree-item {
+
+        .tree-card {
             background: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
         }
-        .tree-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+        .tree-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #4a7c59;
         }
-        .tree-item a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 500;
+
+        .tree-card.selected {
+            border-color: #28a745;
+            background: #e8f5e8;
         }
-        .tree-item a:hover {
-            color: #0056b3;
-            text-decoration: underline;
+
+        .tree-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c5530;
+            margin-bottom: 8px;
         }
-        .coordinates {
+
+        .tree-coordinates {
             font-family: monospace;
             background: #e9ecef;
             padding: 5px 8px;
             border-radius: 4px;
             font-size: 0.9em;
             color: #495057;
+            margin: 8px 0;
         }
-        .price {
+
+        .tree-price {
             font-weight: bold;
             color: #28a745;
-            font-size: 1.1em;
-            margin-top: 8px;
+            font-size: 1.3em;
+            margin: 8px 0;
         }
-        .contact-info {
+
+        .tree-co2 {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        .add-to-cart-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #0056b3;
+        }
+
+        .cart-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .cart-items {
+            margin: 20px 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .cart-total {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #28a745;
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 15px;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .property-info {
             background: #e3f2fd;
             border-radius: 10px;
             padding: 20px;
-            margin-top: 30px;
+            margin-bottom: 20px;
             border-left: 5px solid #2196f3;
         }
-        .contact-info h3 {
-            color: #1976d2;
-            margin-top: 0;
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
         }
+
+        .property-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .property-item strong {
+            color: #2c5530;
+        }
+
+        .contact-info {
+            background: #fff3cd;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 5px solid #ffc107;
+        }
+
+        .contact-info h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
         .footer {
             background: #343a40;
             color: white;
             text-align: center;
             padding: 20px;
+            border-radius: 0 0 15px 15px;
             font-size: 0.9em;
         }
+
         @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
             .header h1 {
                 font-size: 2em;
             }
-            .tree-grid {
+            
+            .trees-grid {
                 grid-template-columns: 1fr;
             }
-            .property-grid {
-                grid-template-columns: 1fr;
-            }
+        }
+
+        .co2-info {
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .co2-info h4 {
+            color: #2c5530;
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🌲 Forest Tree Coordinates</h1>
-            <p>Perunkavaara, Rovaniemi, Finland</p>
+            <h1>🌲 Carbon Forest</h1>
+            <p>Offset Your CO2 Footprint by Planting Trees in Finland</p>
         </div>
-        
-        <div class="content">
-            <div class="property-info">
-                <h2>🏡 Property Information</h2>
-                <div class="property-grid">
-                    <div class="property-item">
-                        <strong>Location:</strong><br>
-                        Ingintie, Perunkavaara, Rovaniemi
-                    </div>
-                    <div class="property-item">
-                        <strong>Property Size:</strong><br>
-                        75 hectares (750,000 m²)
-                    </div>
-                    <div class="property-item">
-                        <strong>Forest Area:</strong><br>
-                        52.1 hectares
-                    </div>
-                    <div class="property-item">
-                        <strong>Total Timber:</strong><br>
-                        5,264 m³
-                    </div>
-                    <div class="property-item">
-                        <strong>Log Volume:</strong><br>
-                        2,074 m³
-                    </div>
-                </div>
-            </div>
 
-            <div class="tree-grid">
-                <div class="tree-item">
-                    <strong>Large Pine Tree 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5432,25.8765" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5432, 25.8765</span>
-                    <div class="price">€12,500</div>
+        <div class="calculator-section">
+            <h2 class="section-title">🧮 CO2 Calculator</h2>
+            <form class="calculator-form" id="co2Calculator">
+                <div class="form-group">
+                    <label for="transportation">Transportation (km/year):</label>
+                    <input type="number" id="transportation" placeholder="e.g., 15000">
                 </div>
-                <div class="tree-item">
-                    <strong>Large Pine Tree 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5438,25.8772" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5438, 25.8772</span>
-                    <div class="price">€11,800</div>
+                
+                <div class="form-group">
+                    <label for="electricity">Electricity Usage (kWh/month):</label>
+                    <input type="number" id="electricity" placeholder="e.g., 500">
                 </div>
-                <div class="tree-item">
-                    <strong>Large Pine Tree 3</strong><br>
-                    <a href="https://maps.google.com/?q=66.5445,25.8768" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5445, 25.8768</span>
-                    <div class="price">€13,200</div>
+                
+                <div class="form-group">
+                    <label for="heating">Heating (kWh/year):</label>
+                    <input type="number" id="heating" placeholder="e.g., 20000">
                 </div>
-                <div class="tree-item">
-                    <strong>Large Spruce Tree 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5435,25.8780" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5435, 25.8780</span>
-                    <div class="price">€9,800</div>
+                
+                <div class="form-group">
+                    <label for="flights">Flights (hours/year):</label>
+                    <input type="number" id="flights" placeholder="e.g., 10">
                 </div>
-                <div class="tree-item">
-                    <strong>Large Spruce Tree 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5442,25.8785" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5442, 25.8785</span>
-                    <div class="price">€10,500</div>
+                
+                <div class="form-group">
+                    <label for="diet">Diet Type:</label>
+                    <select id="diet">
+                        <option value="omnivore">Omnivore</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                    </select>
                 </div>
-                <div class="tree-item">
-                    <strong>Mature Pine Cluster 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5425,25.8750" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5425, 25.8750</span>
-                    <div class="price">€8,900</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Mature Pine Cluster 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5428,25.8755" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5428, 25.8755</span>
-                    <div class="price">€9,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Spruce Stand 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5430,25.8745" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5430, 25.8745</span>
-                    <div class="price">€7,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Spruce Stand 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5433,25.8748" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5433, 25.8748</span>
-                    <div class="price">€7,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Mixed Forest Area 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5420,25.8740" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5420, 25.8740</span>
-                    <div class="price">€6,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Young Pine Growth</strong><br>
-                    <a href="https://maps.google.com/?q=66.5415,25.8735" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5415, 25.8735</span>
-                    <div class="price">€3,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Young Pine Growth 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5418,25.8738" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5418, 25.8738</span>
-                    <div class="price">€3,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Spruce Saplings</strong><br>
-                    <a href="https://maps.google.com/?q=66.5422,25.8742" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5422, 25.8742</span>
-                    <div class="price">€2,900</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Birch Stand</strong><br>
-                    <a href="https://maps.google.com/?q=66.5410,25.8730" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5410, 25.8730</span>
-                    <div class="price">€4,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Aspen Grove</strong><br>
-                    <a href="https://maps.google.com/?q=66.5413,25.8733" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5413, 25.8733</span>
-                    <div class="price">€3,900</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Edge Pine 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5440,25.8790" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5440, 25.8790</span>
-                    <div class="price">€8,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Edge Pine 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5445,25.8795" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5445, 25.8795</span>
-                    <div class="price">€8,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Edge Spruce 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5448,25.8798" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5448, 25.8798</span>
-                    <div class="price">€6,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Edge Spruce 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5450,25.8800" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5450, 25.8800</span>
-                    <div class="price">€7,100</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Edge Mixed 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5443,25.8793" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5443, 25.8793</span>
-                    <div class="price">€5,900</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Western Pine 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5405,25.8725" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5405, 25.8725</span>
-                    <div class="price">€7,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Western Pine 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5408,25.8728" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5408, 25.8728</span>
-                    <div class="price">€8,100</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Western Spruce 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5412,25.8732" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5412, 25.8732</span>
-                    <div class="price">€6,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Western Spruce 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5400,25.8720" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5400, 25.8720</span>
-                    <div class="price">€6,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Western Mixed 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5403,25.8723" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5403, 25.8723</span>
-                    <div class="price">€5,400</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Dense Pine Stand 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5435,25.8760" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5435, 25.8760</span>
-                    <div class="price">€9,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Dense Pine Stand 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5438,25.8763" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5438, 25.8763</span>
-                    <div class="price">€9,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Dense Spruce Stand 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5440,25.8765" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5440, 25.8765</span>
-                    <div class="price">€8,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Dense Spruce Stand 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5443,25.8768" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5443, 25.8768</span>
-                    <div class="price">€8,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Dense Mixed 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5430,25.8755" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5430, 25.8755</span>
-                    <div class="price">€7,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Premium Pine 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5450,25.8775" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5450, 25.8775</span>
-                    <div class="price">€15,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Premium Pine 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5453,25.8778" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5453, 25.8778</span>
-                    <div class="price">€15,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Premium Spruce 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5455,25.8780" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5455, 25.8780</span>
-                    <div class="price">€12,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Premium Spruce 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5458,25.8783" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5458, 25.8783</span>
-                    <div class="price">€13,100</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Premium Mixed 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5448,25.8772" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5448, 25.8772</span>
-                    <div class="price">€11,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Young Growth Pine 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5405,25.8740" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5405, 25.8740</span>
-                    <div class="price">€3,200</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Young Growth Pine 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5408,25.8743" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5408, 25.8743</span>
-                    <div class="price">€3,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Young Growth Spruce 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5410,25.8745" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5410, 25.8745</span>
-                    <div class="price">€2,800</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Young Growth Spruce 2</strong><br>
-                    <a href="https://maps.google.com/?q=66.5413,25.8748" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5413, 25.8748</span>
-                    <div class="price">€3,100</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Young Growth Mixed 1</strong><br>
-                    <a href="https://maps.google.com/?q=66.5400,25.8735" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5400, 25.8735</span>
-                    <div class="price">€2,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Rest Hut (Taukotupa)</strong><br>
-                    <a href="https://maps.google.com/?q=66.5425,25.8755" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5425, 25.8755</span>
-                    <div class="price">€25,000</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Gravel Pit (Soramonttu)</strong><br>
-                    <a href="https://maps.google.com/?q=66.5430,25.8760" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5430, 25.8760</span>
-                    <div class="price">€18,500</div>
-                </div>
-                <div class="tree-item">
-                    <strong>Motorcycle Trail Entry</strong><br>
-                    <a href="https://maps.google.com/?q=66.5415,25.8740" target="_blank">View on Google Maps</a><br>
-                    <span class="coordinates">66.5415, 25.8740</span>
-                    <div class="price">€5,000</div>
+                
+                <button type="submit" class="calculate-btn">Calculate CO2 Footprint</button>
+            </form>
+            
+            <div class="result-box" id="resultBox" style="display: none;">
+                <h3>Your Carbon Footprint</h3>
+                <div class="co2-amount" id="co2Amount">0 kg CO2/year</div>
+                <div class="trees-needed" id="treesNeeded">0 trees needed</div>
+                <div class="co2-info">
+                    <h4>💡 How it works:</h4>
+                    <p>Each tree absorbs approximately 22 kg of CO2 per year. To offset your footprint, we'll help you select the right combination of trees from our Finnish forest.</p>
                 </div>
             </div>
+        </div>
 
-            <div class="contact-info">
-                <h3>📞 Contact Information</h3>
-                <p><strong>For accurate tree inventory and GPS coordinates, contact:</strong></p>
-                <ul>
-                    <li><strong>Seller:</strong> Matti Uusitalo</li>
-                    <li><strong>Company:</strong> Lapin Metsäkiinteistöt Oy LKV</li>
-                    <li><strong>Email:</strong> matti.uusitalo@lapinmetsakiinteistot.fi</li>
-                </ul>
+        <div class="trees-section">
+            <h2 class="section-title">🌳 Available Trees</h2>
+            <p>Select trees to add to your carbon offset package. Each tree is located in our forest in Perunkavaara, Rovaniemi, Finland.</p>
+            
+            <div class="trees-grid" id="treesGrid">
+                <!-- Trees will be populated by JavaScript -->
             </div>
+        </div>
+
+        <div class="cart-section">
+            <h2 class="section-title">🛒 Your Carbon Offset Package</h2>
+            <div class="cart-items" id="cartItems">
+                <p>No trees selected yet. Calculate your CO2 footprint and select trees to get started!</p>
+            </div>
+            <div class="cart-total" id="cartTotal"></div>
+            <button class="checkout-btn" id="checkoutBtn" style="display: none;">Complete Purchase</button>
+        </div>
+
+        <div class="property-info">
+            <h3>🏡 Forest Property Information</h3>
+            <div class="property-grid">
+                <div class="property-item">
+                    <strong>Location:</strong><br>
+                    Ingintie, Perunkavaara, Rovaniemi
+                </div>
+                <div class="property-item">
+                    <strong>Property Size:</strong><br>
+                    75 hectares (750,000 m²)
+                </div>
+                <div class="property-item">
+                    <strong>Forest Area:</strong><br>
+                    52.1 hectares
+                </div>
+                <div class="property-item">
+                    <strong>Total Timber:</strong><br>
+                    5,264 m³
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h3>📞 Contact Information</h3>
+            <p><strong>For accurate tree inventory and GPS coordinates, contact:</strong></p>
+            <ul>
+                <li><strong>Seller:</strong> Matti Uusitalo</li>
+                <li><strong>Company:</strong> Lapin Metsäkiinteistöt Oy LKV</li>
+                <li><strong>Email:</strong> matti.uusitalo@lapinmetsakiinteistot.fi</li>
+                <li><strong>Forest Assessor:</strong> Sami Oinaa</li>
+            </ul>
         </div>
 
         <div class="footer">
-            <p>This project is for educational and reference purposes only.</p>
+            <p>🌲 Carbon Forest - Making CO2 compensation accessible through real forest preservation</p>
         </div>
     </div>
+
+    <script>
+        // Tree data with CO2 absorption estimates
+        const trees = [
+            { id: 1, name: "Large Pine Tree 1", coordinates: [66.5432, 25.8765], price: 12500, co2Absorption: 45, type: "pine" },
+            { id: 2, name: "Large Pine Tree 2", coordinates: [66.5438, 25.8772], price: 11800, co2Absorption: 42, type: "pine" },
+            { id: 3, name: "Large Pine Tree 3", coordinates: [66.5445, 25.8768], price: 13200, co2Absorption: 48, type: "pine" },
+            { id: 4, name: "Large Spruce Tree 1", coordinates: [66.5435, 25.8780], price: 9800, co2Absorption: 38, type: "spruce" },
+            { id: 5, name: "Large Spruce Tree 2", coordinates: [66.5442, 25.8785], price: 10500, co2Absorption: 40, type: "spruce" },
+            { id: 6, name: "Mature Pine Cluster 1", coordinates: [66.5425, 25.8750], price: 8900, co2Absorption: 35, type: "pine" },
+            { id: 7, name: "Mature Pine Cluster 2", coordinates: [66.5428, 25.8755], price: 9200, co2Absorption: 36, type: "pine" },
+            { id: 8, name: "Spruce Stand 1", coordinates: [66.5430, 25.8745], price: 7500, co2Absorption: 30, type: "spruce" },
+            { id: 9, name: "Spruce Stand 2", coordinates: [66.5433, 25.8748], price: 7800, co2Absorption: 32, type: "spruce" },
+            { id: 10, name: "Mixed Forest Area 1", coordinates: [66.5420, 25.8740], price: 6200, co2Absorption: 25, type: "mixed" },
+            { id: 11, name: "Young Pine Growth", coordinates: [66.5415, 25.8735], price: 3500, co2Absorption: 15, type: "pine" },
+            { id: 12, name: "Young Pine Growth 2", coordinates: [66.5418, 25.8738], price: 3800, co2Absorption: 16, type: "pine" },
+            { id: 13, name: "Spruce Saplings", coordinates: [66.5422, 25.8742], price: 2900, co2Absorption: 12, type: "spruce" },
+            { id: 14, name: "Birch Stand", coordinates: [66.5410, 25.8730], price: 4200, co2Absorption: 18, type: "birch" },
+            { id: 15, name: "Aspen Grove", coordinates: [66.5413, 25.8733], price: 3900, co2Absorption: 17, type: "aspen" }
+        ];
+
+        let cart = [];
+        let userCO2Footprint = 0;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            populateTrees();
+            setupEventListeners();
+        });
+
+        function populateTrees() {
+            const treesGrid = document.getElementById('treesGrid');
+            treesGrid.innerHTML = '';
+
+            trees.forEach(tree => {
+                const treeCard = document.createElement('div');
+                treeCard.className = 'tree-card';
+                treeCard.innerHTML = `
+                    <div class="tree-name">${tree.name}</div>
+                    <div class="tree-coordinates">${tree.coordinates[0]}, ${tree.coordinates[1]}</div>
+                    <div class="tree-price">€${tree.price.toLocaleString()}</div>
+                    <div class="tree-co2">Absorbs ~${tree.co2Absorption} kg CO2/year</div>
+                    <button class="add-to-cart-btn" onclick="addToCart(${tree.id})">Add to Cart</button>
+                `;
+                treesGrid.appendChild(treeCard);
+            });
+        }
+
+        function setupEventListeners() {
+            document.getElementById('co2Calculator').addEventListener('submit', calculateCO2);
+            document.getElementById('checkoutBtn').addEventListener('click', checkout);
+        }
+
+        function calculateCO2(e) {
+            e.preventDefault();
+            
+            const transportation = parseFloat(document.getElementById('transportation').value) || 0;
+            const electricity = parseFloat(document.getElementById('electricity').value) || 0;
+            const heating = parseFloat(document.getElementById('heating').value) || 0;
+            const flights = parseFloat(document.getElementById('flights').value) || 0;
+            const diet = document.getElementById('diet').value;
+
+            // CO2 calculation factors (simplified)
+            const transportCO2 = transportation * 0.2; // kg CO2 per km
+            const electricityCO2 = electricity * 12 * 0.5; // kg CO2 per kWh
+            const heatingCO2 = heating * 0.3; // kg CO2 per kWh
+            const flightsCO2 = flights * 90; // kg CO2 per hour
+            const dietCO2 = diet === 'vegan' ? 1000 : diet === 'vegetarian' ? 1500 : 2500; // kg CO2 per year
+
+            userCO2Footprint = transportCO2 + electricityCO2 + heatingCO2 + flightsCO2 + dietCO2;
+            const treesNeeded = Math.ceil(userCO2Footprint / 22); // Average tree absorbs 22 kg CO2/year
+
+            document.getElementById('co2Amount').textContent = `${userCO2Footprint.toFixed(0)} kg CO2/year`;
+            document.getElementById('treesNeeded').textContent = `${treesNeeded} trees needed`;
+            document.getElementById('resultBox').style.display = 'block';
+
+            // Scroll to trees section
+            document.querySelector('.trees-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function addToCart(treeId) {
+            const tree = trees.find(t => t.id === treeId);
+            if (!tree) return;
+
+            const existingItem = cart.find(item => item.id === treeId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...tree, quantity: 1 });
+            }
+
+            updateCart();
+        }
+
+        function removeFromCart(treeId) {
+            cart = cart.filter(item => item.id !== treeId);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>No trees selected yet. Calculate your CO2 footprint and select trees to get started!</p>';
+                cartTotal.textContent = '';
+                checkoutBtn.style.display = 'none';
+                return;
+            }
+
+            let totalPrice = 0;
+            let totalCO2 = 0;
+
+            cartItems.innerHTML = cart.map(item => {
+                totalPrice += item.price * item.quantity;
+                totalCO2 += item.co2Absorption * item.quantity;
+                
+                return `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small>Absorbs ${item.co2Absorption} kg CO2/year</small>
+                        </div>
+                        <div>
+                            <strong>€${(item.price * item.quantity).toLocaleString()}</strong>
+                            <button onclick="removeFromCart(${item.id})" style="margin-left: 10px; background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Remove</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            cartTotal.innerHTML = `
+                <div>Total Price: <strong>€${totalPrice.toLocaleString()}</strong></div>
+                <div>Total CO2 Offset: <strong>${totalCO2} kg/year</strong></div>
+                ${userCO2Footprint > 0 ? `<div>Offset Percentage: <strong>${((totalCO2 / userCO2Footprint) * 100).toFixed(1)}%</strong></div>` : ''}
+            `;
+            
+            checkoutBtn.style.display = 'block';
+        }
+
+        function checkout() {
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const totalCO2 = cart.reduce((sum, item) => sum + (item.co2Absorption * item.quantity), 0);
+            
+            alert(`Thank you for your purchase!\n\nTotal: €${totalPrice.toLocaleString()}\nCO2 Offset: ${totalCO2} kg/year\n\nYou will receive a certificate of your carbon offset and GPS coordinates of your trees.`);
+            
+            // Reset cart
+            cart = [];
+            updateCart();
+        }
+    </script>
 </body>
 </html> 

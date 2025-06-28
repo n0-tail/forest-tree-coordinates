@@ -66,15 +66,6 @@
         .property-item strong {
             color: #2c5530;
         }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section h3 {
-            color: #2c5530;
-            border-bottom: 2px solid #28a745;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
         .tree-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -108,13 +99,11 @@
             font-size: 0.9em;
             color: #495057;
         }
-        .warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            color: #856404;
+        .price {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 1.1em;
+            margin-top: 8px;
         }
         .contact-info {
             background: #e3f2fd;
@@ -178,128 +167,267 @@
                         <strong>Log Volume:</strong><br>
                         2,074 m³
                     </div>
-                    <div class="property-item">
-                        <strong>Price:</strong><br>
-                        238,500 €
-                    </div>
                 </div>
             </div>
 
-            <div class="warning">
-                ⚠️ <strong>Important:</strong> These coordinates are estimates based on typical Finnish forest distribution patterns. The actual tree locations would require a detailed forest inventory from the property owner.
-            </div>
-
-            <div class="section">
-                <h3>🌲 Northern Section (High-value timber area)</h3>
-                <div class="tree-grid">
-                    <div class="tree-item">
-                        <strong>Large Pine Tree 1</strong><br>
-                        <a href="https://maps.google.com/?q=66.5432,25.8765" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5432, 25.8765</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Large Pine Tree 2</strong><br>
-                        <a href="https://maps.google.com/?q=66.5438,25.8772" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5438, 25.8772</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Large Pine Tree 3</strong><br>
-                        <a href="https://maps.google.com/?q=66.5445,25.8768" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5445, 25.8768</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Large Spruce Tree 1</strong><br>
-                        <a href="https://maps.google.com/?q=66.5435,25.8780" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5435, 25.8780</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Large Spruce Tree 2</strong><br>
-                        <a href="https://maps.google.com/?q=66.5442,25.8785" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5442, 25.8785</span>
-                    </div>
+            <div class="tree-grid">
+                <div class="tree-item">
+                    <strong>Large Pine Tree 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5432,25.8765" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5432, 25.8765</span>
+                    <div class="price">€12,500</div>
                 </div>
-            </div>
-
-            <div class="section">
-                <h3>🌳 Central Forest Section</h3>
-                <div class="tree-grid">
-                    <div class="tree-item">
-                        <strong>Mature Pine Cluster 1</strong><br>
-                        <a href="https://maps.google.com/?q=66.5425,25.8750" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5425, 25.8750</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Mature Pine Cluster 2</strong><br>
-                        <a href="https://maps.google.com/?q=66.5428,25.8755" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5428, 25.8755</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Spruce Stand 1</strong><br>
-                        <a href="https://maps.google.com/?q=66.5430,25.8745" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5430, 25.8745</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Spruce Stand 2</strong><br>
-                        <a href="https://maps.google.com/?q=66.5433,25.8748" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5433, 25.8748</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Mixed Forest Area 1</strong><br>
-                        <a href="https://maps.google.com/?q=66.5420,25.8740" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5420, 25.8740</span>
-                    </div>
+                <div class="tree-item">
+                    <strong>Large Pine Tree 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5438,25.8772" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5438, 25.8772</span>
+                    <div class="price">€11,800</div>
                 </div>
-            </div>
-
-            <div class="section">
-                <h3>🌱 Southern Section</h3>
-                <div class="tree-grid">
-                    <div class="tree-item">
-                        <strong>Young Pine Growth</strong><br>
-                        <a href="https://maps.google.com/?q=66.5415,25.8735" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5415, 25.8735</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Young Pine Growth 2</strong><br>
-                        <a href="https://maps.google.com/?q=66.5418,25.8738" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5418, 25.8738</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Spruce Saplings</strong><br>
-                        <a href="https://maps.google.com/?q=66.5422,25.8742" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5422, 25.8742</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Birch Stand</strong><br>
-                        <a href="https://maps.google.com/?q=66.5410,25.8730" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5410, 25.8730</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Aspen Grove</strong><br>
-                        <a href="https://maps.google.com/?q=66.5413,25.8733" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5413, 25.8733</span>
-                    </div>
+                <div class="tree-item">
+                    <strong>Large Pine Tree 3</strong><br>
+                    <a href="https://maps.google.com/?q=66.5445,25.8768" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5445, 25.8768</span>
+                    <div class="price">€13,200</div>
                 </div>
-            </div>
-
-            <div class="section">
-                <h3>🏠 Property Features</h3>
-                <div class="tree-grid">
-                    <div class="tree-item">
-                        <strong>Rest Hut (Taukotupa)</strong><br>
-                        <a href="https://maps.google.com/?q=66.5425,25.8755" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5425, 25.8755</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Gravel Pit (Soramonttu)</strong><br>
-                        <a href="https://maps.google.com/?q=66.5430,25.8760" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5430, 25.8760</span>
-                    </div>
-                    <div class="tree-item">
-                        <strong>Motorcycle Trail Entry</strong><br>
-                        <a href="https://maps.google.com/?q=66.5415,25.8740" target="_blank">View on Google Maps</a><br>
-                        <span class="coordinates">66.5415, 25.8740</span>
-                    </div>
+                <div class="tree-item">
+                    <strong>Large Spruce Tree 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5435,25.8780" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5435, 25.8780</span>
+                    <div class="price">€9,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Large Spruce Tree 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5442,25.8785" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5442, 25.8785</span>
+                    <div class="price">€10,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Mature Pine Cluster 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5425,25.8750" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5425, 25.8750</span>
+                    <div class="price">€8,900</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Mature Pine Cluster 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5428,25.8755" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5428, 25.8755</span>
+                    <div class="price">€9,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Spruce Stand 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5430,25.8745" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5430, 25.8745</span>
+                    <div class="price">€7,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Spruce Stand 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5433,25.8748" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5433, 25.8748</span>
+                    <div class="price">€7,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Mixed Forest Area 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5420,25.8740" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5420, 25.8740</span>
+                    <div class="price">€6,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Young Pine Growth</strong><br>
+                    <a href="https://maps.google.com/?q=66.5415,25.8735" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5415, 25.8735</span>
+                    <div class="price">€3,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Young Pine Growth 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5418,25.8738" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5418, 25.8738</span>
+                    <div class="price">€3,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Spruce Saplings</strong><br>
+                    <a href="https://maps.google.com/?q=66.5422,25.8742" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5422, 25.8742</span>
+                    <div class="price">€2,900</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Birch Stand</strong><br>
+                    <a href="https://maps.google.com/?q=66.5410,25.8730" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5410, 25.8730</span>
+                    <div class="price">€4,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Aspen Grove</strong><br>
+                    <a href="https://maps.google.com/?q=66.5413,25.8733" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5413, 25.8733</span>
+                    <div class="price">€3,900</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Edge Pine 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5440,25.8790" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5440, 25.8790</span>
+                    <div class="price">€8,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Edge Pine 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5445,25.8795" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5445, 25.8795</span>
+                    <div class="price">€8,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Edge Spruce 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5448,25.8798" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5448, 25.8798</span>
+                    <div class="price">€6,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Edge Spruce 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5450,25.8800" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5450, 25.8800</span>
+                    <div class="price">€7,100</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Edge Mixed 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5443,25.8793" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5443, 25.8793</span>
+                    <div class="price">€5,900</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Western Pine 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5405,25.8725" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5405, 25.8725</span>
+                    <div class="price">€7,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Western Pine 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5408,25.8728" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5408, 25.8728</span>
+                    <div class="price">€8,100</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Western Spruce 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5412,25.8732" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5412, 25.8732</span>
+                    <div class="price">€6,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Western Spruce 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5400,25.8720" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5400, 25.8720</span>
+                    <div class="price">€6,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Western Mixed 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5403,25.8723" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5403, 25.8723</span>
+                    <div class="price">€5,400</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Dense Pine Stand 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5435,25.8760" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5435, 25.8760</span>
+                    <div class="price">€9,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Dense Pine Stand 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5438,25.8763" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5438, 25.8763</span>
+                    <div class="price">€9,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Dense Spruce Stand 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5440,25.8765" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5440, 25.8765</span>
+                    <div class="price">€8,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Dense Spruce Stand 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5443,25.8768" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5443, 25.8768</span>
+                    <div class="price">€8,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Dense Mixed 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5430,25.8755" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5430, 25.8755</span>
+                    <div class="price">€7,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Premium Pine 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5450,25.8775" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5450, 25.8775</span>
+                    <div class="price">€15,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Premium Pine 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5453,25.8778" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5453, 25.8778</span>
+                    <div class="price">€15,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Premium Spruce 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5455,25.8780" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5455, 25.8780</span>
+                    <div class="price">€12,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Premium Spruce 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5458,25.8783" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5458, 25.8783</span>
+                    <div class="price">€13,100</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Premium Mixed 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5448,25.8772" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5448, 25.8772</span>
+                    <div class="price">€11,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Young Growth Pine 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5405,25.8740" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5405, 25.8740</span>
+                    <div class="price">€3,200</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Young Growth Pine 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5408,25.8743" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5408, 25.8743</span>
+                    <div class="price">€3,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Young Growth Spruce 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5410,25.8745" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5410, 25.8745</span>
+                    <div class="price">€2,800</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Young Growth Spruce 2</strong><br>
+                    <a href="https://maps.google.com/?q=66.5413,25.8748" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5413, 25.8748</span>
+                    <div class="price">€3,100</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Young Growth Mixed 1</strong><br>
+                    <a href="https://maps.google.com/?q=66.5400,25.8735" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5400, 25.8735</span>
+                    <div class="price">€2,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Rest Hut (Taukotupa)</strong><br>
+                    <a href="https://maps.google.com/?q=66.5425,25.8755" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5425, 25.8755</span>
+                    <div class="price">€25,000</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Gravel Pit (Soramonttu)</strong><br>
+                    <a href="https://maps.google.com/?q=66.5430,25.8760" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5430, 25.8760</span>
+                    <div class="price">€18,500</div>
+                </div>
+                <div class="tree-item">
+                    <strong>Motorcycle Trail Entry</strong><br>
+                    <a href="https://maps.google.com/?q=66.5415,25.8740" target="_blank">View on Google Maps</a><br>
+                    <span class="coordinates">66.5415, 25.8740</span>
+                    <div class="price">€5,000</div>
                 </div>
             </div>
 
@@ -311,12 +439,11 @@
                     <li><strong>Company:</strong> Lapin Metsäkiinteistöt Oy LKV</li>
                     <li><strong>Email:</strong> matti.uusitalo@lapinmetsakiinteistot.fi</li>
                 </ul>
-                <p><strong>Original Listing:</strong> <a href="https://www.etuovi.com/kohde/57170117?haku=M2268428231" target="_blank">View on Etuovi.com</a></p>
             </div>
         </div>
 
         <div class="footer">
-            <p>This project is for educational and reference purposes only. All property information is sourced from the public listing on Etuovi.com.</p>
+            <p>This project is for educational and reference purposes only.</p>
         </div>
     </div>
 </body>
